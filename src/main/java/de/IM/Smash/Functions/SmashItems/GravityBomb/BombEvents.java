@@ -24,7 +24,7 @@ public class BombEvents implements Listener {
                 if (itemStack.getItemMeta().getDisplayName().equals(ChatColor.GRAY + "Gravitations-Bombe")) {
                     player.getInventory().setItemInMainHand(new ItemStack(Material.AIR));
                     BombItem itemstack = (BombItem) itemStack;
-                    Item bomb = world.dropItem(player.getEyeLocation(), new BombItem());
+                    Item bomb = itemstack.spawnBombEntity(player.getEyeLocation());
                     bomb.setVelocity(player.getLocation().getDirection().multiply(1.5));
                     itemstack.explosionTimer(bomb);
                     bomb.setPickupDelay(1000);

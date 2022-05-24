@@ -28,6 +28,11 @@ public class BombItem extends SmashItem {
         this.setItemMeta(meta);
     }
 
+    public Item spawnBombEntity(Location location){
+        World world = location.getWorld();
+        return world.dropItem(location, this);
+    }
+
     public void explosionTimer(Item bomb){
         new BukkitRunnable(){
             @Override
